@@ -81,7 +81,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
   /// can be helpful to set this property to [ClampingScrollPhysics].
   final ScrollPhysics? physics;
   
-  final ScrollController scrollController;
+  final ScrollController? scrollController;
 
   /// The type of stepper that determines the layout. In the case of
   /// [StepperType.horizontal], the content of the current step is displayed
