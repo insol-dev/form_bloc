@@ -182,7 +182,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
               ? null
               : (step) => onStepTapped?.call(formBloc, step),
           physics: physics,
-		  controller:scrollController,
+		  scrollController:scrollController,
           type: type,
           steps: [
             for (var i = 0; i < formBlocSteps.length; i++)
