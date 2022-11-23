@@ -57,6 +57,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
     this.formBloc,
     required this.stepsBuilder,
     this.physics,
+	this.scrollController,
     this.type = StepperType.vertical,
     this.onStepTapped,
     this.onStepContinue,
@@ -79,6 +80,8 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
   /// If the stepper is contained within another scrollable it
   /// can be helpful to set this property to [ClampingScrollPhysics].
   final ScrollPhysics? physics;
+  
+  final ScrollController scrollController;
 
   /// The type of stepper that determines the layout. In the case of
   /// [StepperType.horizontal], the content of the current step is displayed
@@ -179,6 +182,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
               ? null
               : (step) => onStepTapped?.call(formBloc, step),
           physics: physics,
+		  controller:scrollController,
           type: type,
           steps: [
             for (var i = 0; i < formBlocSteps.length; i++)
