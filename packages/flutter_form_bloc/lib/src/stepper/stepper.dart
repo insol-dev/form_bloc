@@ -142,6 +142,7 @@ class Stepper extends StatefulWidget {
     Key? key,
     required this.steps,
     this.physics,
+	this.scrollController,
     this.type = StepperType.vertical,
     this.currentStep = 0,
     this.onStepTapped,
@@ -167,6 +168,8 @@ class Stepper extends StatefulWidget {
   /// If the stepper is contained within another scrollable it
   /// can be helpful to set this property to [ClampingScrollPhysics].
   final ScrollPhysics? physics;
+  
+  final ScrollController scrollController;
 
   /// The type of stepper that determines the layout. In the case of
   /// [StepperType.horizontal], the content of the current step is displayed
@@ -636,6 +639,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
   Widget _buildVertical() {
     return ListView(
       shrinkWrap: true,
+	  controller: widget.scrollController,
       physics: widget.physics,
       children: <Widget>[
         for (int i = 0; i < widget.steps.length; i += 1)
